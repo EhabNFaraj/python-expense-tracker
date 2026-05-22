@@ -29,7 +29,7 @@ def log_expense():
         except ValueError:
             print("❌ Invalid amount. Please enter a number (e.g., 50 or 49.99).")
 
-    with open("expenses.csv", mode="a", newline="") as file:
+    with open("Expenses.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([date, category, amount])
 
@@ -47,7 +47,7 @@ def check_budget(category):
     current_month = datetime.now().strftime("%Y-%m")
     
     try:
-        with open("expenses.csv", mode="r") as file:
+        with open("Expenses.csv", mode="r") as file:
             reader = csv.reader(file)
             for row in reader:
                 if len(row) < 3:
@@ -71,7 +71,7 @@ def check_budget(category):
 def show_summary():
     expenses = {}
     try:
-        with open("expenses.csv", mode="r") as file:
+        with open("Expenses.csv", mode="r") as file:
             reader = csv.reader(file)
             for row in reader:
                 if len(row) < 3:
@@ -102,7 +102,7 @@ def show_monthly_summary():
 
     expenses = {}
     try:
-        with open("expenses.csv", mode="r") as file:
+        with open("Expenses.csv", mode="r") as file:
             reader = csv.reader(file)
             for row in reader:
                 if len(row) < 3:
@@ -136,7 +136,7 @@ def show_chart():
     categories = []
     amounts = []
     try:
-        with open("expenses.csv", mode="r") as file:
+        with open("Expenses.csv", mode="r") as file:
             reader = csv.reader(file)
             for row in reader:
                 if len(row) < 3:
